@@ -20,6 +20,45 @@ That will:
 If you want to inspect the contents of the midiaID container, tap `./run_stable /bin/bash`.
 
 If you want to use the experimental pipeline, exchange `stable` for `experimental` in all steps above.
+We recommend doing that in a separate folder to avoid overwriting previously created configs.
+
+
+# Folder structure:
+
+* `configs`
+
+Here we keep all the pipeline configuration files.
+Installing pipeline will fill it with the right content.
+
+* `credentials`
+
+Here you can optionally keep AWS and ssh credentials that the pipeline `midia_fetch` module can use to automate pulling down data.
+
+* `fastas`
+
+Here we keep fasta files used in the pipeline. Some can be automatically pulled down from our [website](https://bioputer.mimuw.edu.pl/~matteo/fastas).
+
+* `midia_dev`
+
+Folder used for docker-based pipeline development.
+
+* `outputs`
+
+Folder containing final pipeline outputs.
+
+* `P`, `partial`, `tmp`
+
+Folders with temporary pipeline outputs.
+
+* `snakemake`
+
+Folder with `snakemake` internals, internally corresponding to `.snakemake`.
+
+* `spectra`
+
+Folder where to put the raw data.
+
+
 
 
 # Running a pipeline
