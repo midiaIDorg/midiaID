@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Define allowed arguments
+possible_pipelines=("stable" "experimental")
+possible_pipelines_string="$(IFS='|'; echo "${possible_pipelines[*]}")"
+
+
+show_usage() {
+    echo "Install pipeline with:"
+    echo
+    echo "./install [$possible_pipelines_string]" >&2
+    echo
+    exit 1
+}
+
+# Check if an argument is provided
+if [ $# -ne 1 ]; then
+    show_usage
+fi
+
+if [[ ! " ${possible_pipelines[@]} " =~ " $1 " ]]; then
+    echo "Error: Invalid argument, $1."
+    show_usage
+fi
+
+echo "You have chosen to install the '$1' pipeline."
+echo "RUNNING: docker pull tenzerlab/midiaid:$1"
+docker pull tenzerlab/midiaid:$1
+
+
+# rm -rf configs/* && docker compose run -u $(id -u):$(id -g) midia /bin/bash -c "cp -r --no-preserve=mode,ownership /midia/midia_experiments/midia_workspace/midia_pipe/configs-templates/* configs"
+

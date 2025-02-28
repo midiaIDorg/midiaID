@@ -1,17 +1,30 @@
 # Prerequisites
 
-To run the pipeline you will need:
-
-1. an installed pipeline, preferentially using the docker image.
-
+To run the pipeline you will need an installed pipeline, preferentially using the docker image.
 We assume a working Docker instance with user added to the docker group.
+
 The sofware was tested on Linux, Linux subsystem for Windows, and MacOS docker installations.
 Current hardware requirements vary on dataset, but can go up to 256GB of RAM used while running fragment clustering.
 
-Open the terminal in the folder containing those instructions. Run `./install`. That will mount subfolders in the unzipped folder to the image and copy their contents. After that is done, check that you can see snakemake help by running `./run snakemake --help`. 
+# Installation
 
-If you want to inspect the contents of the midiaID container, tap `./run /bin/bash`.
+* Click [here](https://github.com/midiaIDorg/midiaID/archive/refs/heads/main.zip) to download the `midiaID-main.zip` file.
+* Unzip file and get into the unzipped folder.
+* On Linux, run `./install_linux stable`. On Windows, run `./install_windows stable`.
 
+That will:
+* pull the stable image from dockerhub
+* mount subfolders in the unzipped folder to the image and copy their contents. After that is done, check that you can see snakemake help by running `./run snakemake --help`. 
+* create a `run_stable` command.
+
+If you want to inspect the contents of the midiaID container, tap `./run_stable /bin/bash`.
+
+If you want to use the experimental pipeline, exchange `stable` for `experimental` in all steps above.
+
+
+# Running a pipeline
+
+1. TODO: move that to the pipeline. Each pipeline should come with its own README with usage instructions.
 
 2. a dataset to be analyzed obtained using the midiaPASEF acquisition method
 
