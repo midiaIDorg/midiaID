@@ -13,11 +13,12 @@ Current hardware requirements vary on dataset, but can go up to 256GB of RAM use
 * On Linux, run `./install_linux stable`. On Windows, run `./install_windows stable`.
 
 That will:
-* pull the stable image from dockerhub
-* mount subfolders in the unzipped folder to the image and copy their contents. After that is done, check that you can see snakemake help by running `./run snakemake --help`. 
-* create a `run_stable` command.
+* pull the stable image from dockerhub.
+* mount subfolders in the unzipped folder to the image and copy their contents.
+* create a `run` command.
 
-If you want to inspect the contents of the midiaID container, tap `./run_stable /bin/bash`.
+After that is done, check that you can see snakemake help by running `./run snakemake --help`. 
+If you want to inspect the contents of the midiaID container, tap `./run /bin/bash`.
 
 If you want to use the experimental pipeline, exchange `stable` for `experimental` in all steps above.
 We recommend doing that in a separate folder to avoid overwriting previously created configs.
@@ -37,6 +38,10 @@ Here you can optionally keep AWS and ssh credentials that the pipeline `midia_fe
 * `fastas`
 
 Here we keep fasta files used in the pipeline. Some can be automatically pulled down from our [website](https://bioputer.mimuw.edu.pl/~matteo/fastas).
+
+* `manual`
+
+Folder with pipeline-specific manual.
 
 * `midia_dev`
 
@@ -60,10 +65,16 @@ Folder where to put the raw data.
 
 
 
-
 # Running a pipeline
 
-1. TODO: move that to the pipeline. Each pipeline should come with its own README with usage instructions.
+To learn how to run a pipeline, run:
+
+`./run snakemake outputs/base/intro`
+
+That will run a test pipeline.
+In general, you will be running the pipeline as 
+`./run snakemake outputs/<pipeline_name>/<pipeline_config>/<other_pipeline_arguments>`
+but run `outputs/base/intro` first for a pipeline-specific introduction.
 
 
 # Regression
