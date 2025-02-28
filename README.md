@@ -15,8 +15,10 @@ Current hardware requirements vary on dataset, but can go up to 256GB of RAM use
 That will:
 * pull the stable image from dockerhub.
 * mount subfolders in the unzipped folder to the image and copy their contents.
-* create a `run` command.
+* create a `run` command (or `run.bat`).
 
+In general, everywhere below replace `run` with `run.bat` when on Windows.
+But, come on, use Linux.
 After that is done, check that you can see snakemake help by running `./run snakemake --help`. 
 If you want to inspect the contents of the midiaID container, tap `./run /bin/bash`.
 

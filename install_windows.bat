@@ -30,3 +30,7 @@ if !is_valid! equ 0 (
 echo You have chosen to install the '%~1' pipeline.
 echo RUNNING: docker pull tenzerlab/midiaid:%~1
 docker pull tenzerlab/midiaid:%~1
+
+
+echo @echo off > run.bat
+echo docker-compose run -u %USERDOMAIN%\%USERNAME% --rm midia %* >> run.bat
